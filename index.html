@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Timestamper</title>
+    <meta name="description" content="starter">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body data-ng-app="timestamper" data-ng-controller="MainCtrl">
+  <div class="content centered">
+  <h1 style="margin-bottom:20px">TimeStamper</h1>
+  <form data-ng-submit="getJSON()">
+    <input class="searchr" type="text" placeholder="Give me a time." data-ng-model="input.userInputTime" />
+  </form>
+  <div id="tz_results">
+    <span data-ng-if="result">{{result.unix}}, {{result.natural}}<span>
+    <table>
+    <tr class="tz_time" data-ng-repeat="tz in arrTimes">
+      <td>{{tz.timezoneName}}</td><td>{{tz.date}}</td>
+    </tr>
+    </table>
+    <span data-ng-if="lastResult">Last Result: {{lastResult.unix}}, {{lastResult.natural}}<span>
+  </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.11/moment-timezone-with-data.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
